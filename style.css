@@ -189,3 +189,15 @@ body {
         font-size: 16px;
     }
 }
+
+/* Logo Amatec (responsiva) */
+.logo-amatec {
+    width: 120px;
+    max-width: 40%;
+    height: auto;
+    display: block;
+    margin: 0 auto 12px auto;
+}
+
+/* Garantir imagens responsivas em geral */
+img { max-width: 100%; height: auto; }

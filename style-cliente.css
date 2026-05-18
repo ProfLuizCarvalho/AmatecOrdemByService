@@ -298,6 +298,9 @@ body {
     gap: 8px;
 }
 
+/* Imagens responsivas */
+img { max-width: 100%; height: auto; }
+
 /* Modal */
 .modal {
     position: fixed;

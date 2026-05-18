@@ -191,6 +191,10 @@ body {
     animation: scaleIn 0.8s ease-out;
 }
 
+/* Regras gerais para imagens e logo */
+.logo-amatec { width: 180px; max-width: 45%; height: auto; }
+img { max-width: 100%; height: auto; }
+
 .home-container h1 {
     color: white;
     font-size: 36px;
