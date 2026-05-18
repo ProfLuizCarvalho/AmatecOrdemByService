@@ -19,9 +19,9 @@ loginForm.addEventListener('submit', function(event) {
         // Login bem-sucedido
         localStorage.setItem('loggedInUser', username);
         
-        // Redirecionar para a página home após um pequeno delay
+        // Redirecionar para a página de clientes após um pequeno delay
         setTimeout(() => {
-            window.location.href = 'home.html';
+            window.location.href = 'cliente.html';
         }, 500);
     } else {
         // Login falhou
