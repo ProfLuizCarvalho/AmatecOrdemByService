@@ -1,6 +1,6 @@
 // Credenciais corretas
-const CORRECT_USERNAME = 'adm';
-const CORRECT_PASSWORD = '123';
+const CORRECT_USERNAME = 'amatec';
+const CORRECT_PASSWORD = '01000141';
 
 // Referências ao DOM
 const loginForm = document.getElementById('loginForm');

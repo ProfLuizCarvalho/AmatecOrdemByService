@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Faturamento - Amatec Ordem By Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-faturamento.css">
+</head>
+<body>
+    <!-- Header com botão Home -->
+    <header class="header">
+        <div class="header-content">
+            <a href="home.html" class="btn-home" title="Voltar para Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <h1>Gerenciar Faturamento</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Seção de Formulário -->
+        <div class="form-section">
+            <h2>Formulário de Faturamento</h2>
+            <form id="faturamentoForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="faturamentoId">ID:</label>
+                        <input 
+                            type="text" 
+                            id="faturamentoId" 
+                            name="id" 
+                            readonly
+                            placeholder="Gerado automaticamente"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="faturamentoCliente">Cliente:</label>
+                        <input 
+                            type="text" 
+                            id="faturamentoCliente" 
+                            name="cliente" 
+                            placeholder="Nome do cliente"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="faturamentoData">Data:</label>
+                        <input 
+                            type="date" 
+                            id="faturamentoData" 
+                            name="data" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="faturamentoValor">Valor (R$):</label>
+                        <input 
+                            type="number" 
+                            id="faturamentoValor" 
+                            name="valor" 
+                            placeholder="0.00"
+                            step="0.01"
+                            min="0"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="faturamentoDescricao">Descrição:</label>
+                        <textarea 
+                            id="faturamentoDescricao" 
+                            name="descricao" 
+                            rows="3"
+                            placeholder="Descrição do serviço/produto"
+                            required
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="faturamentoStatus">Status:</label>
+                        <select id="faturamentoStatus" name="status" required>
+                            <option value="">Selecione o status</option>
+                            <option value="pendente">Pendente</option>
+                            <option value="pago">Pago</option>
+                            <option value="cancelado">Cancelado</option>
+                            <option value="vencido">Vencido</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="faturamentoDataVencimento">Data de Vencimento:</label>
+                        <input 
+                            type="date" 
+                            id="faturamentoDataVencimento" 
+                            name="dataVencimento" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="btnSalvar">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btnNovo">
+                        <i class="fas fa-plus"></i> Novo
+                    </button>
+                    <button type="button" class="btn btn-danger" id="btnCancelar">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-light" id="btnFechar">
+                        <i class="fas fa-sign-out-alt"></i> Fechar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Seção de Grid/Tabela -->
+        <div class="grid-section">
+            <h2>Faturamentos Cadastrados</h2>
+            <div class="grid-wrapper">
+                <table class="grid-table" id="faturamentoTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th>Valor</th>
+                            <th>Descrição</th>
+                            <th>Vencimento</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td colspan="8" class="empty-message">Nenhum faturamento cadastrado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div id="deleteModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Confirmar Exclusão</h3>
+            <p>Tem certeza que deseja excluir este faturamento?</p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="confirmDelete">
+                    <i class="fas fa-trash"></i> Excluir
+                </button>
+                <button class="btn btn-secondary" id="cancelDelete">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="faturamento.js"></script>
+</body>
+</html>
