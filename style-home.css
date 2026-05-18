@@ -8,193 +8,209 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    display: flex;
 }
 
-/* Header */
-.header {
-    background: white;
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
     top: 0;
-    z-index: 100;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 2px solid #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header h1 {
+.sidebar-header h2 {
     color: #333;
-    font-size: 28px;
+    font-size: 20px;
 }
 
-.user-info {
+.btn-close-sidebar {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+}
+
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin: 0;
+}
+
+.nav-item {
     display: flex;
     align-items: center;
-    gap: 20px;
-}
-
-.user-info span {
-    color: #666;
-    font-weight: 600;
-}
-
-.btn-logout {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.btn-logout:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-
-/* Container */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Welcome Section */
-.welcome-section {
-    text-align: center;
-    color: white;
-    margin-bottom: 50px;
-    animation: slideInDown 0.6s ease-out;
-}
-
-.welcome-section h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.welcome-section p {
-    font-size: 18px;
-    opacity: 0.9;
-}
-
-/* Cards Grid */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    gap: 15px;
+    padding: 15px 20px;
+    color: #555;
     text-decoration: none;
-    color: #333;
     transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background-color: #f5f5f5;
+    color: #667eea;
+    border-left-color: #667eea;
+    padding-left: 25px;
+}
+
+.nav-item i {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-item.logout {
+    color: #dc3545;
+    margin-top: auto;
+}
+
+.nav-item.logout:hover {
+    background-color: #fee;
+    color: #c82333;
+}
+
+.divider {
+    height: 1px;
+    background: #eee;
+    margin: 10px 0;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 2px solid #f0f0f0;
+    text-align: center;
+}
+
+.sidebar-footer p {
+    color: #999;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Overlay para mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     position: relative;
-    overflow: hidden;
+}
+
+.btn-menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    color: #667eea;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+    transition: all 0.3s;
+}
+
+.btn-menu-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Home Container */
+.home-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-}
-
-.card:hover::before {
-    transform: scaleX(1);
-}
-
-.card:not(.disabled):hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.card.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.card-icon {
-    font-size: 60px;
-    color: #667eea;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.card p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 20px;
-    flex: 1;
-}
-
-.arrow {
-    display: inline-flex;
-    align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: #f0f0f0;
-    border-radius: 50%;
-    color: #667eea;
-    font-size: 18px;
-    transition: all 0.3s;
+    text-align: center;
+    animation: slideInUp 0.6s ease-out;
 }
 
-.card:hover .arrow {
-    background: #667eea;
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+    animation: scaleIn 0.8s ease-out;
+}
+
+.home-container h1 {
     color: white;
-    transform: translateX(5px);
+    font-size: 36px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 12px;
-    background: #ffc107;
-    color: #333;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
+.tagline {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    margin: 0;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Animações */
-@keyframes slideInDown {
+@keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -202,82 +218,146 @@ body {
     }
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 15px;
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsividade - Tablet */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
     }
 
-    .header h1 {
-        font-size: 24px;
-        text-align: center;
+    .main-content {
+        margin-left: 240px;
+        width: calc(100% - 240px);
     }
 
-    .user-info {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
+    .logo {
+        width: 250px;
+        height: 250px;
     }
 
-    .welcome-section h2 {
-        font-size: 28px;
+    .home-container h1 {
+        font-size: 30px;
     }
 
-    .welcome-section p {
+    .tagline {
         font-size: 16px;
     }
+}
 
-    .cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+/* Responsividade - Mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+        border-radius: 0;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .btn-close-sidebar {
+        display: block;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .btn-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 80px 20px 20px;
+    }
+
+    .logo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .home-container h1 {
+        font-size: 24px;
+    }
+
+    .tagline {
+        font-size: 14px;
+    }
+
+    .sidebar-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-bottom: none;
+    }
+
+    .sidebar-header h2 {
+        color: white;
+    }
+
+    .btn-close-sidebar {
+        color: white;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-
-    .header h1 {
+    .btn-menu-toggle {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        left: 15px;
         font-size: 20px;
     }
 
-    .user-info {
-        flex-direction: column;
-        gap: 10px;
+    .main-content {
+        padding: 70px 15px 15px;
     }
 
-    .user-info span {
-        font-size: 14px;
+    .logo-section {
+        gap: 20px;
     }
 
-    .btn-logout {
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .home-container h1 {
+        font-size: 20px;
+    }
+
+    .tagline {
+        font-size: 12px;
+    }
+
+    .sidebar {
         width: 100%;
-        justify-content: center;
     }
 
-    .welcome-section h2 {
-        font-size: 24px;
+    .nav-item {
+        padding: 12px 15px;
     }
 
-    .welcome-section p {
-        font-size: 14px;
+    .nav-item i {
+        font-size: 16px;
     }
 
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card {
-        padding: 20px;
-    }
-
-    .card-icon {
-        font-size: 48px;
-    }
-
-    .card h3 {
-        font-size: 18px;
+    .sidebar-footer p {
+        font-size: 11px;
     }
 }

@@ -8,68 +8,69 @@
     <link rel="stylesheet" href="style-home.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <h1>Amatec Ordem By Service</h1>
-            <div class="user-info">
-                <span id="userName"></span>
-                <button class="btn-logout" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> Sair
-                </button>
-            </div>
+    <!-- Menu Lateral -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="btn-close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-    </header>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="cliente.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#tickets" class="nav-item">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>Tickets</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#contato" class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Contato</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#" class="nav-item logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p id="userNameSidebar"></p>
+        </div>
+    </aside>
+
+    <!-- Overlay para fechar menu em mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
     <!-- Main Content -->
-    <div class="container">
-        <div class="welcome-section">
-            <h2>Bem-vindo ao Sistema</h2>
-            <p>Escolha uma opção para continuar</p>
-        </div>
+    <main class="main-content">
+        <!-- Button para abrir menu em mobile -->
+        <button class="btn-menu-toggle" id="toggleMenu">
+            <i class="fas fa-bars"></i>
+        </button>
 
-        <div class="cards-grid">
-            <!-- Card de Clientes -->
-            <a href="cliente.html" class="card">
-                <div class="card-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Gerenciar Clientes</h3>
-                <p>Cadastre, edite e gerencie seus clientes</p>
-                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
-            </a>
-
-            <!-- Card de Ordens (Placeholder) -->
-            <div class="card disabled">
-                <div class="card-icon">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <h3>Ordens de Serviço</h3>
-                <p>Crie e acompanhe ordens de serviço</p>
-                <span class="badge">Em breve</span>
-            </div>
-
-            <!-- Card de Relatórios (Placeholder) -->
-            <div class="card disabled">
-                <div class="card-icon">
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-                <h3>Relatórios</h3>
-                <p>Visualize relatórios e estatísticas</p>
-                <span class="badge">Em breve</span>
-            </div>
-
-            <!-- Card de Configurações (Placeholder) -->
-            <div class="card disabled">
-                <div class="card-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <h3>Configurações</h3>
-                <p>Ajuste as preferências do sistema</p>
-                <span class="badge">Em breve</span>
+        <!-- Logo e Conteúdo -->
+        <div class="home-container">
+            <div class="logo-section">
+                <img src="https://via.placeholder.com/300x300?text=AMATEC+LOGO" alt="Amatec Logo" class="logo">
+                <h1>Amatec Ordem By Service</h1>
+                <p class="tagline">Sistema de Gestão de Clientes e Serviços</p>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="home.js"></script>
 </body>

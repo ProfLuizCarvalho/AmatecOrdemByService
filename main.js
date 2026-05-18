@@ -21,7 +21,7 @@ loginForm.addEventListener('submit', function(event) {
         
         // Redirecionar para a página de clientes após um pequeno delay
         setTimeout(() => {
-            window.location.href = 'cliente.html';
+            window.location.href = 'home.html';
         }, 500);
     } else {
         // Login falhou
