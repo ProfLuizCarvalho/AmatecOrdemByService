@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Clientes - Amatec Ordem By Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-cliente.css">
+</head>
+<body>
+    <!-- Header com botão Home -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="btn-home" title="Voltar para Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <h1>Gerenciar Clientes</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Seção de Formulário -->
+        <div class="form-section">
+            <h2>Formulário de Cliente</h2>
+            <form id="clientForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientId">ID:</label>
+                        <input 
+                            type="text" 
+                            id="clientId" 
+                            name="id" 
+                            readonly
+                            placeholder="Gerado automaticamente"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientNome">Nome:</label>
+                        <input 
+                            type="text" 
+                            id="clientNome" 
+                            name="nome" 
+                            placeholder="Digite o nome do cliente"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientCnpj">CNPJ:</label>
+                        <input 
+                            type="text" 
+                            id="clientCnpj" 
+                            name="cnpj" 
+                            placeholder="00.000.000/0000-00"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientTelefone">Telefone:</label>
+                        <input 
+                            type="text" 
+                            id="clientTelefone" 
+                            name="telefone" 
+                            placeholder="(00) 00000-0000"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientResponsavel">Responsável:</label>
+                        <input 
+                            type="text" 
+                            id="clientResponsavel" 
+                            name="responsavel" 
+                            placeholder="Nome do responsável"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientStatus">Status:</label>
+                        <select id="clientStatus" name="status" required>
+                            <option value="">Selecione o status</option>
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                            <option value="pendente">Pendente</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="btnSalvar">
+                        <i class="fas fa-save"></i> Salvar
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btnNovo">
+                        <i class="fas fa-plus"></i> Novo
+                    </button>
+                    <button type="button" class="btn btn-danger" id="btnCancelar">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-light" id="btnFechar">
+                        <i class="fas fa-sign-out-alt"></i> Fechar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Seção de Grid/Tabela -->
+        <div class="grid-section">
+            <h2>Clientes Cadastrados</h2>
+            <div class="grid-wrapper">
+                <table class="grid-table" id="clientTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CNPJ</th>
+                            <th>Telefone</th>
+                            <th>Responsável</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <tr>
+                            <td colspan="7" class="empty-message">Nenhum cliente cadastrado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div id="deleteModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Confirmar Exclusão</h3>
+            <p>Tem certeza que deseja excluir este cliente?</p>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="confirmDelete">
+                    <i class="fas fa-trash"></i> Excluir
+                </button>
+                <button class="btn btn-secondary" id="cancelDelete">
+                    <i class="fas fa-times"></i> Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cliente.js"></script>
+</body>
+</html>

@@ -6,8 +6,6 @@ const CORRECT_PASSWORD = '123';
 const loginForm = document.getElementById('loginForm');
 const messageDiv = document.getElementById('message');
 const loginContainer = document.querySelector('.login-container');
-const loggedInScreen = document.getElementById('loggedInScreen');
-const userDisplay = document.getElementById('userDisplay');
 
 // Event listener para o formulário
 loginForm.addEventListener('submit', function(event) {
@@ -19,13 +17,12 @@ loginForm.addEventListener('submit', function(event) {
     // Validar credenciais
     if (username === CORRECT_USERNAME && password === CORRECT_PASSWORD) {
         // Login bem-sucedido
-        loginContainer.style.display = 'none';
-        loggedInScreen.classList.remove('hidden');
-        userDisplay.textContent = `Bem-vindo, ${username}!`;
+        localStorage.setItem('loggedInUser', username);
         
-        // Limpar formulário
-        loginForm.reset();
-        messageDiv.className = 'message';
+        // Redirecionar para a página home após um pequeno delay
+        setTimeout(() => {
+            window.location.href = 'home.html';
+        }, 500);
     } else {
         // Login falhou
         messageDiv.className = 'message error';
@@ -42,14 +39,6 @@ loginForm.addEventListener('submit', function(event) {
     }
 });
 
-// Função para fazer logout
-function logout() {
-    loginContainer.style.display = 'flex';
-    loggedInScreen.classList.add('hidden');
-    loginForm.reset();
-    messageDiv.className = 'message';
-    document.getElementById('username').focus();
-}
 
 // Focar no campo de usuário quando a página carrega
 window.addEventListener('load', () => {

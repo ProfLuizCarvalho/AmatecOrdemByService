@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Amatec Ordem By Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style-home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Amatec Ordem By Service</h1>
+            <div class="user-info">
+                <span id="userName"></span>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="welcome-section">
+            <h2>Bem-vindo ao Sistema</h2>
+            <p>Escolha uma opção para continuar</p>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Card de Clientes -->
+            <a href="cliente.html" class="card">
+                <div class="card-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Gerenciar Clientes</h3>
+                <p>Cadastre, edite e gerencie seus clientes</p>
+                <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+            </a>
+
+            <!-- Card de Ordens (Placeholder) -->
+            <div class="card disabled">
+                <div class="card-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>Ordens de Serviço</h3>
+                <p>Crie e acompanhe ordens de serviço</p>
+                <span class="badge">Em breve</span>
+            </div>
+
+            <!-- Card de Relatórios (Placeholder) -->
+            <div class="card disabled">
+                <div class="card-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Relatórios</h3>
+                <p>Visualize relatórios e estatísticas</p>
+                <span class="badge">Em breve</span>
+            </div>
+
+            <!-- Card de Configurações (Placeholder) -->
+            <div class="card disabled">
+                <div class="card-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>Configurações</h3>
+                <p>Ajuste as preferências do sistema</p>
+                <span class="badge">Em breve</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>
