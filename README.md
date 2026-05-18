@@ -1,2 +1,2 @@
 # AmatecOrdemByService
-Aplicação de ordem de serviço - via ticket
+Aplicação de ordem de serviço - via Ordem de Serviço
