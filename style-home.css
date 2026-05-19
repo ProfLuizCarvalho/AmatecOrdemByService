@@ -175,6 +175,10 @@ body {
     margin: 0 auto;
 }
 
+/* Regras gerais para imagens e logo */
+.logo-amatec { width: 180px; max-width: 45%; height: auto; }
+img { max-width: 100%; height: auto; }
+
 .logo {
     max-width: 180px;
     width: 100%;
@@ -183,10 +187,6 @@ body {
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
     animation: scaleIn 0.8s ease-out;
 }
-
-/* Regras gerais para imagens e logo */
-.logo-amatec { width: 180px; max-width: 45%; height: auto; }
-img { max-width: 100%; height: auto; }
 
 .home-container h1 {
     color: white;
@@ -244,10 +244,12 @@ img { max-width: 100%; height: auto; }
 
     .home-container h1 {
         font-size: 30px;
+        color: white;
     }
 
     .tagline {
         font-size: 16px;
+        color: white;
     }
 }
 
@@ -291,10 +293,12 @@ img { max-width: 100%; height: auto; }
 
     .home-container h1 {
         font-size: 24px;
+        color: white;
     }
 
     .tagline {
         font-size: 14px;
+        color: white;
     }
 
     .sidebar-header {
@@ -336,10 +340,12 @@ img { max-width: 100%; height: auto; }
 
     .home-container h1 {
         font-size: 20px;
+        color: white;
     }
 
     .tagline {
         font-size: 12px;
+        color: white;
     }
 
     .sidebar {

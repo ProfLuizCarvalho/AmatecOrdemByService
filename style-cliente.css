@@ -237,6 +237,15 @@ body {
     margin-bottom: 20px;
 }
 
+#ordemForm .form-row,
+#clientForm .form-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;

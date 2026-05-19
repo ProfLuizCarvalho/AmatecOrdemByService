@@ -30,12 +30,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="itensOrdem.html" class="nav-item">
-                        <i class="fas fa-list"></i>
-                        <span>Itens de Ordem</span>
-                    </a>
-                </li>
-                <li>
                     <a href="produto.html" class="nav-item">
                         <i class="fas fa-box"></i>
                         <span>Produto</span>
@@ -102,9 +96,7 @@
                             required
                         >
                     </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group">
                         <label for="clientDocumento">Documento:</label>
                         <input 
@@ -115,7 +107,9 @@
                             required
                         >
                     </div>
+                </div>
 
+                <div class="form-row">
                     <div class="form-group">
                         <label for="clientTelefone">Telefone:</label>
                         <input 
@@ -126,9 +120,7 @@
                             required
                         >
                     </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group">
                         <label for="clientCelular">Celular:</label>
                         <input 
@@ -150,6 +142,48 @@
                 </div>
 
                 <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientEndereco">Endereço:</label>
+                        <input 
+                            type="text" 
+                            id="clientEndereco" 
+                            name="endereco" 
+                            placeholder="Digite o endereço, nº do imóvel"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientBairro">Bairro:</label>
+                        <input 
+                            type="text" 
+                            id="clientBairro" 
+                            name="bairro" 
+                            placeholder="Digite o bairro"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientCep">CEP:</label>
+                        <input 
+                            type="text" 
+                            id="clientCep" 
+                            name="cep" 
+                            placeholder="00000-000"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientReferencia">Referência:</label>
+                        <input 
+                            type="text" 
+                            id="clientReferencia" 
+                            name="referencia" 
+                            placeholder="Ponto de referência"
+                        >
+                    </div>
+
                     <div class="form-group">
                         <label for="clientResponsavel">Responsável:</label>
                         <input 
