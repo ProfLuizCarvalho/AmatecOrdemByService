@@ -8,7 +8,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     min-height: 100vh;
-    padding: 20px;
+    padding: 0 20px 20px;
 }
 
 /* Sidebar */
@@ -170,6 +170,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
 }
 
 .header-content {

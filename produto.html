@@ -119,6 +119,12 @@
                         <button type="button" class="btn btn-secondary">
                             <i class="fas fa-plus"></i> Novo
                         </button>
+                        <button type="button" class="btn btn-danger" id="btnCancelar">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button type="button" class="btn btn-light" id="btnFechar">
+                            <i class="fas fa-sign-out-alt"></i> Fechar
+                        </button>
                     </div>
                 </form>
             </div>
@@ -148,6 +154,25 @@
             </div>
         </div>
     </main>
+    <script>
+        const produtoForm = document.getElementById('produtoForm');
+        const produtoIdInput = document.getElementById('produtoId');
+        const btnCancelar = document.getElementById('btnCancelar');
+        const btnFechar = document.getElementById('btnFechar');
+
+        btnCancelar?.addEventListener('click', () => {
+            if (produtoForm) {
+                produtoForm.reset();
+            }
+            if (produtoIdInput) {
+                produtoIdInput.value = '';
+            }
+        });
+
+        btnFechar?.addEventListener('click', () => {
+            window.location.href = 'home.html';
+        });
+    </script>
     <script src="home.js"></script>
 </body>
 </html>

@@ -20,6 +20,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
 }
 
 .header-content {
