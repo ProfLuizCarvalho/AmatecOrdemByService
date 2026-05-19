@@ -73,8 +73,10 @@ const manager = new ClienteManager();
 const clientForm = document.getElementById('clientForm');
 const clientIdInput = document.getElementById('clientId');
 const clientNomeInput = document.getElementById('clientNome');
-const clientCnpjInput = document.getElementById('clientCnpj');
+const clientDocumentoInput = document.getElementById('clientDocumento');
 const clientTelefoneInput = document.getElementById('clientTelefone');
+const clientCelularInput = document.getElementById('clientCelular');
+const clientTipoInput = document.getElementById('clientTipo');
 const clientResponsavelInput = document.getElementById('clientResponsavel');
 const clientStatusInput = document.getElementById('clientStatus');
 const tableBody = document.getElementById('tableBody');
@@ -105,8 +107,8 @@ clientForm.addEventListener('submit', (e) => {
     handleSave();
 });
 
-// Formatar CNPJ
-clientCnpjInput.addEventListener('input', (e) => {
+// Formatar Documento
+clientDocumentoInput.addEventListener('input', (e) => {
     let value = e.target.value.replace(/\D/g, '');
     if (value.length <= 14) {
         value = value.replace(/(\d{2})(\d)/, '$1.$2');
@@ -136,15 +138,21 @@ function handleSave() {
         return;
     }
 
-    if (!clientCnpjInput.value.trim()) {
-        alert('Por favor, preencha o CNPJ');
-        clientCnpjInput.focus();
+    if (!clientDocumentoInput.value.trim()) {
+        alert('Por favor, preencha o documento');
+        clientDocumentoInput.focus();
         return;
     }
 
     if (!clientTelefoneInput.value.trim()) {
         alert('Por favor, preencha o telefone');
         clientTelefoneInput.focus();
+        return;
+    }
+
+    if (!clientTipoInput.value) {
+        alert('Por favor, selecione o tipo de cliente');
+        clientTipoInput.focus();
         return;
     }
 
@@ -162,8 +170,10 @@ function handleSave() {
 
     const clienteData = {
         nome: clientNomeInput.value.trim(),
-        cnpj: clientCnpjInput.value.trim(),
+        documento: clientDocumentoInput.value.trim(),
         telefone: clientTelefoneInput.value.trim(),
+        celular: clientCelularInput.value.trim(),
+        tipo: clientTipoInput.value,
         responsavel: clientResponsavelInput.value.trim(),
         status: clientStatusInput.value
     };
@@ -215,8 +225,10 @@ function editCliente(id) {
     if (cliente) {
         clientIdInput.value = cliente.id;
         clientNomeInput.value = cliente.nome;
-        clientCnpjInput.value = cliente.cnpj;
+        clientDocumentoInput.value = cliente.documento;
         clientTelefoneInput.value = cliente.telefone;
+        clientCelularInput.value = cliente.celular;
+        clientTipoInput.value = cliente.tipo;
         clientResponsavelInput.value = cliente.responsavel;
         clientStatusInput.value = cliente.status;
         isEditMode = true;
@@ -265,8 +277,10 @@ function renderTable() {
         <tr>
             <td><strong>${cliente.id}</strong></td>
             <td>${cliente.nome}</td>
-            <td>${cliente.cnpj}</td>
+            <td>${cliente.documento}</td>
             <td>${cliente.telefone}</td>
+            <td>${cliente.celular || '-'}</td>
+            <td>${cliente.tipo || '-'}</td>
             <td>${cliente.responsavel}</td>
             <td>
                 <span class="status ${cliente.status}">

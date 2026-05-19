@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -37,7 +37,7 @@ body {
     justify-content: center;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     color: white;
     border-radius: 10px;
     text-decoration: none;
@@ -48,7 +48,7 @@ body {
 
 .btn-home:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
 }
 
 .header h1 {
@@ -76,7 +76,7 @@ body {
     color: #333;
     margin-bottom: 25px;
     font-size: 22px;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 2px solid #1A73E8;
     padding-bottom: 10px;
 }
 
@@ -114,8 +114,8 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #1A73E8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
 }
 
 .form-group input:readonly {
@@ -155,13 +155,13 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
 }
 
 .btn-secondary {
@@ -229,7 +229,7 @@ body {
     color: #333;
     margin-bottom: 25px;
     font-size: 22px;
-    border-bottom: 2px solid #667eea;
+    border-bottom: 2px solid #1A73E8;
     padding-bottom: 10px;
 }
 
@@ -244,7 +244,7 @@ body {
 }
 
 .grid-table thead {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     color: white;
 }
 

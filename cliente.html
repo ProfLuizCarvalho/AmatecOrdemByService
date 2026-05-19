@@ -8,12 +8,69 @@
     <link rel="stylesheet" href="style-cliente.css">
 </head>
 <body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="btn-close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="cliente.html" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordem.html" class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Ordem de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="itensOrdem.html" class="nav-item">
+                        <i class="fas fa-list"></i>
+                        <span>Itens de Ordem</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="produto.html" class="nav-item">
+                        <i class="fas fa-box"></i>
+                        <span>Produto</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="tecnico.html" class="nav-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Técnico</span>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#" class="nav-item logout" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p id="userNameSidebar"></p>
+        </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <!-- Header com botão Home -->
     <header class="header">
         <div class="header-content">
-            <a href="index.html" class="btn-home" title="Voltar para Home">
+            <a href="home.html" class="btn-home" title="Voltar para Home">
                 <i class="fas fa-home"></i>
             </a>
+            <button class="btn-menu-toggle" id="toggleMenu" title="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <h1>Gerenciar Clientes</h1>
         </div>
     </header>
@@ -49,12 +106,12 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="clientCnpj">CNPJ:</label>
+                        <label for="clientDocumento">Documento:</label>
                         <input 
                             type="text" 
-                            id="clientCnpj" 
-                            name="cnpj" 
-                            placeholder="00.000.000/0000-00"
+                            id="clientDocumento" 
+                            name="documento" 
+                            placeholder="CPF/CNPJ"
                             required
                         >
                     </div>
@@ -68,6 +125,27 @@
                             placeholder="(00) 00000-0000"
                             required
                         >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientCelular">Celular:</label>
+                        <input 
+                            type="text" 
+                            id="clientCelular" 
+                            name="celular" 
+                            placeholder="(00) 00000-0000"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientTipo">Tipo:</label>
+                        <select id="clientTipo" name="tipo" required>
+                            <option value="">Selecione o tipo</option>
+                            <option value="pessoa física">Pessoa Física</option>
+                            <option value="pessoa jurídica">Pessoa Jurídica</option>
+                        </select>
                     </div>
                 </div>
 
@@ -120,8 +198,10 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
-                            <th>CNPJ</th>
+                            <th>Documento</th>
                             <th>Telefone</th>
+                            <th>Celular</th>
+                            <th>Tipo</th>
                             <th>Responsável</th>
                             <th>Status</th>
                             <th>Ações</th>
@@ -129,7 +209,7 @@
                     </thead>
                     <tbody id="tableBody">
                         <tr>
-                            <td colspan="7" class="empty-message">Nenhum cliente cadastrado</td>
+                            <td colspan="9" class="empty-message">Nenhum cliente cadastrado</td>
                         </tr>
                     </tbody>
                 </table>
@@ -154,5 +234,6 @@
     </div>
 
     <script src="cliente.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>

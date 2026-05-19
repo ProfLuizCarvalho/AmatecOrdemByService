@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ body {
 }
 
 .system-name {
-    color: #667eea;
+    color: #1A73E8;
     font-size: 16px;
     font-weight: 600;
     margin: 0;
@@ -74,14 +74,14 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #1A73E8;
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
 }
 
 .btn-login {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1A73E8 0%, #2F9E44 100%);
     color: white;
     border: none;
     border-radius: 5px;
@@ -94,7 +94,7 @@ body {
 
 .btn-login:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
 }
 
 .btn-login:active {
@@ -194,7 +194,7 @@ body {
 .logo-amatec {
     width: 120px;
     max-width: 40%;
-    height: auto;
+    height: 120px;
     display: block;
     margin: 0 auto 12px auto;
 }
