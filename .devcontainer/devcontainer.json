@@ -1,0 +1,37 @@
+// .devcontainer/devcontainer.json
+{
+    "name": "Sistema de Suporte TI",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10", // Imagem base com Python
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": { // Adiciona Node.js para o frontend
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers/features/mysql-client:1": { // Adiciona cliente MySQL
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "formulahendry.auto-rename-tag",
+                "ritwickdey.liveserver" // Para o frontend
+            ]
+        }
+    },
+    "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend", // Instala dependências
+    "portsAttributes": {
+        "5000": { // Porta do Flask
+            "label": "Backend API",
+            "onAutoForward": "notify"
+        },
+        "5500": { // Porta do Live Server (padrão)
+            "label": "Frontend Live Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "forwardPorts": [5000, 5500] // Garante que essas portas sejam encaminhadas
+}

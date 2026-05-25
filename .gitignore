@@ -1,0 +1,16 @@
+# .gitignore
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.flaskenv
+
+# Frontend
+node_modules/
+dist/
+
+# Codespaces
+.vscode/
+.devcontainer/
